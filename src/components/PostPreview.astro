@@ -1,12 +1,12 @@
 ---
-const { title, excerpt, date, frontmatter, slug } = Astro.props;
+const { title, excerpt, date, slug } = Astro.props;
 ---
 
 <article>
     <a href={`posts/${slug}`} class="block p-4 border rounded-lg hover:bg-gray-50 transition" >
         <h3 class="text-md font-semibold mb-1">{title}</h3>
         <p class="text-sm text-gray-600">{excerpt}</p>
-        <p class="text-sm mt-2 text-right text-gray-400">{date}</p>
+        <p class="text-sm mt-2 text-right text-gray-400">{new Date(date).toDateString()}</p>
     </a>
 </article>
 

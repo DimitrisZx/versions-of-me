@@ -9,8 +9,11 @@ const { title = "Versions of me" } = Astro.props;
     <title>{title}</title>
 </head>
 <body>
-    <header class="p-4">
-        <h1 class="text-xl font-semibold">Versions of me</h1>
+    <header class="p-4 flex justify-between">
+        <a href="/"><h1 class="text-xl font-semibold">Versions of me</h1></a>
+        <ul>
+            <li><a href="/about"><h1 class="text-xl font-semibold">About</h1></a></li>
+        </ul>
     </header>
     <main class="p-4">
         <slot />

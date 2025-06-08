@@ -1,5 +1,8 @@
 ---
 import { getCollection, render } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PostLayout from '../../layouts/PostLayout.astro';
+import "../../styles/global.css";
 
 export async function getStaticPaths() {
   const posts = await getCollection('posts');
@@ -14,6 +17,8 @@ const { post } = Astro.props;
 const { Content } = await render(post);
 if (!post) throw new Error('Post not found');
 ---
-
-<h1>{post.data.title}</h1>
-<Content />
+<BaseLayout>
+  <PostLayout title={post.data.title} date={post.data.date}>
+    <Content />
+  </PostLayout>
+</BaseLayout>

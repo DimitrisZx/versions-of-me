@@ -1,0 +1,22 @@
+---
+const { title = "Versions of me" } = Astro.props;
+---
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{title}</title>
+</head>
+<body>
+    <header class="p-4">
+        <h1 class="text-xl font-semibold">Versions of me</h1>
+    </header>
+    <main class="p-4">
+        <slot />
+    </main>
+    <footer class="p-4 text-sm text-neutral-500 text-center">
+        © {new Date().getFullYear()} Versions of me. All rights reserved.
+    </footer>
+</body>
+</html> 

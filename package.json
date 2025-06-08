@@ -6,11 +6,16 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "create:post": "ts-node ./scripts/newPost.ts"
   },
   "dependencies": {
+    "@astrojs/mdx": "^4.3.0",
     "@tailwindcss/vite": "^4.1.8",
-    "astro": "^5.9.0",
+    "astro": "^5.9.1",
     "tailwindcss": "^4.1.8"
+  },
+  "devDependencies": {
+    "ts-node": "^10.9.2"
   }
 }

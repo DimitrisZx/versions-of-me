@@ -1,12 +1,21 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+import PostPreview from '../components/PostPreview.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
 import "../styles/global.css";
-
+const posts = await getCollection('posts');
+// const posts = await Object.values(import.meta.glob('../../content/posts/*.md', { eager: true }));
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
-<Layout>
-	<Welcome />
-</Layout>
+<BaseLayout>
+	<section>
+		<h2 class="text-lg font-bold mb-2">Latest Reflections</h2>
+		<ul class="space-y-4">
+			{posts.map((post) => (
+        		<li><PostPreview {...post.data} /></li>
+     	 ))}
+	  </ul>
+	</section>
+</BaseLayout>
